@@ -35,6 +35,13 @@ require __DIR__.'/auth.php';
 //ADMIN ROUTES
 Route::controller(AdminController::class)->group(
     function(){
+        // DASHBOARD 
         Route::get('/admin/dashboard','dashboard')->name('admin.dashboard');
+
+        // LOGOUT 
+        Route::get('/admin/logout','logout')->name('admin.logout');
     }
 );
+
+//ADMIN LOGIN 
+Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
