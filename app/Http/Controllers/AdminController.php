@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Distributor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function dashboard(){
-        return view('admin.dashboard');
+        $distributorCount = Distributor::count();
+        $retailerCount = 0;
+        $productCount = 0;
+        $orderCount = 0;
+        $orders = [];
+        return view('admin.dashboard',compact('distributorCount','retailerCount','productCount','orderCount','orders'));
     }
 
     public function login(){

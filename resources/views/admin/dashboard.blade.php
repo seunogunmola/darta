@@ -1,60 +1,84 @@
 @extends('admin.templates.main')
 @section('content')
     <div class="page-content">
-        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
-            <div class="col">
-                <div class="card radius-10">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Revenue</p>
-                                <h4 class="my-1">$4805</h4>
-                                <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>$34 Since
-                                    last week</p>
-                            </div>
-                            <div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bxs-wallet'></i>
-                            </div>
-                        </div>
-                        <div id="chart1"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Total Customers</p>
-                                <h4 class="my-1">8.4K</h4>
-                                <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>14% Since
-                                    last week</p>
-                            </div>
-                            <div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='bx bxs-group'></i>
-                            </div>
-                        </div>
-                        <div id="chart2"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="card radius-10">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Store Visitors</p>
-                                <h4 class="my-1">59K</h4>
-                                <p class="mb-0 font-13 text-danger"><i class='bx bxs-down-arrow align-middle'></i>12.4%
-                                    Since last week</p>
-                            </div>
-                            <div class="widgets-icons bg-light-danger text-danger ms-auto"><i class='bx bxs-binoculars'></i>
-                            </div>
-                        </div>
-                        <div id="chart3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end row-->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+						<div class="col">
+							<div class="card radius-10 bg-gradient-deepblue">
+							 <div class="card-body">
+								<div class="d-flex align-items-center">
+									<h5 class="mb-0 text-white">{{ $distributorCount}}</h5>
+									<div class="ms-auto">
+                                        <i class='bx bx-user fs-3 text-white'></i>
+									</div>
+								</div>
+								<div class="progress my-3 bg-light-transparent" style="height:3px;">
+									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<div class="d-flex align-items-center text-white">
+									<p class="mb-0">Distributors</p>
+									<!-- <p class="mb-0 ms-auto">+4.2%<span><i class='bx bx-up-arrow-alt'></i></span></p> -->
+								</div>
+							</div>
+						  </div>
+						</div>
+						<div class="col">
+							<div class="card radius-10 bg-gradient-orange">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<h5 class="mb-0 text-white">{{ $retailerCount }}</h5>
+									<div class="ms-auto">
+                                        <i class='bx bx-group fs-3 text-white'></i>
+									</div>
+								</div>
+								<div class="progress my-3 bg-light-transparent" style="height:3px;">
+									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<div class="d-flex align-items-center text-white">
+									<p class="mb-0">Retailers</p>
+									<!-- <p class="mb-0 ms-auto">+1.2%<span><i class='bx bx-up-arrow-alt'></i></span></p> -->
+								</div>
+							</div>
+						  </div>
+						</div>
+						<div class="col">
+							<div class="card radius-10 bg-gradient-ohhappiness">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<h5 class="mb-0 text-white">{{ $productCount }}</h5>
+									<div class="ms-auto">
+                                        <i class='bx bx-group fs-3 text-white'></i>
+									</div>
+								</div>
+								<div class="progress my-3 bg-light-transparent" style="height:3px;">
+									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<div class="d-flex align-items-center text-white">
+									<p class="mb-0">Products</p>
+									<p class="mb-0 ms-auto">+5.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="col">
+							<div class="card radius-10 bg-gradient-ibiza">
+							 <div class="card-body">
+								<div class="d-flex align-items-center">
+									<h5 class="mb-0 text-white">{{ $orderCount }}</h5>
+									<div class="ms-auto">
+                                        <i class='bx bx-cart fs-3 text-white'></i>
+									</div>
+								</div>
+								<div class="progress my-3 bg-light-transparent" style="height:3px;">
+									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<div class="d-flex align-items-center text-white">
+									<p class="mb-0">Orders</p>
+									<p class="mb-0 ms-auto">+2.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div><!--end row-->
         <div class="card radius-10">
             <div class="card-body">
                 <div class="d-flex align-items-center">
@@ -66,6 +90,7 @@
                 </div>
                 <hr />
                 <div class="table-responsive">
+                    @if (count($orders))                        
                     <table class="table align-middle mb-0">
                         <thead class="table-light">
                             <tr>
@@ -109,6 +134,9 @@
                             </tr>
                         </tbody>
                     </table>
+                    @else
+                    <div class="alert alert-info">No Orders </div>
+                    @endif
                 </div>
             </div>
         </div>
