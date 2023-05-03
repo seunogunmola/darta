@@ -2,7 +2,7 @@
             <div class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <div>
-                        <img src="{{ asset('assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
+                        <img src="{{ asset('assets/favicon.svg') }}" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
                         <h4 class="logo-text">Darta</h4>
@@ -26,20 +26,8 @@
                             <div class="menu-title">Distributors</div>
                         </a>
                         <ul>
-                            <li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>Email</a>
-                            </li>
-                            <li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Chat Box</a>
-                            </li>
-                            <li> <a href="app-file-manager.html"><i class="bx bx-right-arrow-alt"></i>File Manager</a>
-                            </li>
-                            <li> <a href="app-contact-list.html"><i class="bx bx-right-arrow-alt"></i>Contatcs</a>
-                            </li>
-                            <li> <a href="app-to-do.html"><i class="bx bx-right-arrow-alt"></i>Todo List</a>
-                            </li>
-                            <li> <a href="app-invoice.html"><i class="bx bx-right-arrow-alt"></i>Invoice</a>
-                            </li>
-                            <li> <a href="app-fullcalender.html"><i class="bx bx-right-arrow-alt"></i>Calendar</a>
-                            </li>
+                            <li> <a href="{{ route('distributor.list') }}"><i class="bx bx-right-arrow-alt"></i>View Distributors</a></li>
+                            <li> <a href="{{ route('distributor.create') }}"><i class="bx bx-right-arrow-alt"></i>Create Distributor</a></li>
                         </ul>
                     </li>
                 </ul>

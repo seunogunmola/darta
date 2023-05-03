@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ require __DIR__.'/auth.php';
 
 
 //ADMIN ROUTES
+// AUTH
 Route::controller(AdminController::class)->group(
     function(){
         // DASHBOARD 
@@ -40,6 +42,17 @@ Route::controller(AdminController::class)->group(
 
         // LOGOUT 
         Route::get('/admin/logout','logout')->name('admin.logout');
+    }
+);
+// DISTRIBUTORS
+Route::controller(DistributorController::class)->group(
+    function(){
+        Route::get('/distributors/create','create')->name('distributor.create');
+        Route::post('/distributors/store','store')->name('distributor.store');
+        Route::get('/distributors/list','index')->name('distributor.list');
+        Route::get('/distributors/edit/{id}','edit')->name('distributor.edit');
+        Route::post('/distributors/update/{id}','update')->name('distributor.update');
+        Route::get('/distributors/delete/{id}','destroy')->name('distributor.delete');
     }
 );
 
