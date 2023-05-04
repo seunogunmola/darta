@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('region', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
+            $table->string('uniqueid');
+            $table->unsignedBigInteger('state_id');            
+            $table->string('region_name');
+            $table->string('region_abbreviation');
+            $table->enum('status',[1,0]);
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
         });
     }

@@ -33,7 +33,7 @@ class DistributorController extends Controller
     public function index()
     {
         $resource = $this->resource;
-        $action = "View Distributors";   
+        $action = "All Distributors";   
         $states = State::getStates();
         $regions = Region::getRegions();            
         $distributors = Distributor::all();

@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+	<link rel="icon" href="{{ asset('assets/favicon.svg') }}" type="image/png" />
 	<!--plugins-->
 	<link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
 	<link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -36,8 +36,6 @@
 								<div class="border p-4 rounded">
 									<div class="text-center">
 										<h3 class="">Sign in</h3>
-										<p>Don't have an account yet? <a href="">Sign up here</a>
-										</p>
 									</div>
 									<div class="form-body">
                                         <form class="row g-3" method="POST" action="{{ route('login') }}">
@@ -58,7 +56,7 @@
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Enter Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input name="password" type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+													<input name="password" type="password" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
 												</div>
 											</div>
 											<div class="col-md-6">

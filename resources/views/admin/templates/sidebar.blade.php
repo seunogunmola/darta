@@ -30,6 +30,17 @@
                             <li> <a href="{{ route('distributor.create') }}"><i class="bx bx-right-arrow-alt"></i>Create Distributor</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class="bx bx-map"></i>
+                            </div>
+                            <div class="menu-title">States</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{ route('states.list') }}"><i class="bx bx-right-arrow-alt"></i>View States</a></li>
+                            <li> <a href="{{ route('states.create') }}"><i class="bx bx-right-arrow-alt"></i>Create State</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!--end navigation-->
             </div>

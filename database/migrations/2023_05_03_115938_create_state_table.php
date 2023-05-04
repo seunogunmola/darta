@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('state', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table) {
             $table->id();
+            $table->string('uniqueid');
+            $table->string('state_name');
+            $table->string('state_abbreviation');
+            $table->unsignedBigInteger('created_by');
+            $table->enum('status',[1,0]);
             $table->timestamps();
         });
     }

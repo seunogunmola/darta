@@ -5,13 +5,7 @@
                         <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
                         </div>
                         <div class="search-bar flex-grow-1">
-                            <div class="position-relative search-bar-box">
-                                <input type="text" class="form-control search-control" placeholder="Type to search...">
-                                <span class="position-absolute top-50 search-show translate-middle-y"><i
-                                        class='bx bx-search'></i></span>
-                                <span class="position-absolute top-50 search-close translate-middle-y"><i
-                                        class='bx bx-x'></i></span>
-                            </div>
+
                         </div>
                         <div class="top-menu ms-auto">
                             <ul class="navbar-nav align-items-center">
@@ -386,27 +380,28 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="javascript:;"><i
-                                            class="bx bx-user"></i><span>Profile</span></a>
+                                <li><a class="dropdown-item" href="javascript:;">
+                                    <i class="bx bx-user"></i><span>Profile</span></a>
                                 </li>
-                                <li><a class="dropdown-item" href="javascript:;"><i
-                                            class="bx bx-cog"></i><span>Settings</span></a>
+                                <li><a class="dropdown-item" href="javascript:;">
+                                    <i class="bx bx-cog"></i><span>Settings</span></a>
                                 </li>
-                                <li><a class="dropdown-item" href="javascript:;"><i
-                                            class='bx bx-home-circle'></i><span>Dashboard</span></a>
+                                <li><a class="dropdown-item" href="javascript:;">
+                                    <i class='bx bx-home-circle'></i><span>Dashboard</span></a>
                                 </li>
-                                <li><a class="dropdown-item" href="javascript:;"><i
-                                            class='bx bx-dollar-circle'></i><span>Earnings</span></a>
+                                <li><a class="dropdown-item" href="javascript:;">
+                                    <i class='bx bx-dollar-circle'></i><span>Earnings</span></a>
                                 </li>
-                                <li><a class="dropdown-item" href="javascript:;"><i
-                                            class='bx bx-download'></i><span>Downloads</span></a>
+                                <li><a class="dropdown-item" href="javascript:;">
+                                    <i class='bx bx-download'></i><span>Downloads</span></a>
                                 </li>
                                 <li>
                                     <div class="dropdown-divider mb-0"></div>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="return confirm('Are You Sure You want to Logout?') ">
-                                        <i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+                                        <i class='bx bx-log-out-circle'></i><span>Logout</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
