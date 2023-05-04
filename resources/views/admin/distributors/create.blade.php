@@ -71,8 +71,8 @@
                                 <div class="col-sm-9">
                                     <select name="state_id" id="state_id" required class="form-control">
                                         <option value="">Select Option</option>
-                                        @foreach($states as $id=>$name)
-                                            <option {{ old('state_id') == $id ?  "selected" : "" }}  value="{{ old('state_id',$id) }}">{{ $name }}</option>
+                                        @foreach($states as $state)
+                                            <option {{ old('state_id') == $state->id ?  "selected" : "" }}  value="{{ old('state_id',$state->id) }}">{{ $state->state_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -82,8 +82,8 @@
                                 <div class="col-sm-9">
                                     <select name="region_id" id="region_id" required class="form-control">
                                         <option value="">Select Option</option>
-                                        @foreach($regions as $id=>$name)
-                                            <option {{ old('region_id') == $id ?  "selected" : "" }}  value="{{ old('region_id',$id) }}">{{ $name }}</option>
+                                        @foreach($regions as $region)
+                                            <option {{ old('region_id') == $region->id ?  "selected" : "" }}  value="{{ old('region_id',$region->id) }}">{{ $region->region_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -93,8 +93,8 @@
                                 <div class="col-sm-9">
                                     <select name="status" id="status" required class="form-control">
                                         <option value="">Select Option</option>
-                                        <option {{ old('status') == 1 ?  "selected" : "" }} value="1">Enabled</option>
-                                        <option {{ old('status') == 0 ?  "selected" : "" }} value="0">Disabled</option>
+                                        <option {{ old('status') === 1 ?  "selected" : "" }} value="1">Enabled</option>
+                                        <option {{ old('status') === 0 ?  "selected" : "" }} value="0">Disabled</option>
                                     </select>
                                 </div>
                             </div>

@@ -27,8 +27,8 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Region</th>
                             <th>State</th>
+                            <th>Region</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -41,8 +41,8 @@
                                 <td>{{ $distributor->name }}</td>
                                 <td>{{ $distributor->phone }}</td>
                                 <td>{{ $distributor->email }}</td>
-                                <td>{{ $regions[$distributor->region_id] }}</td>
-                                <td>{{ $states[$distributor->state_id] }}</td>
+                                <td>{{ $distributor->state->state_name }}</td>
+                                <td>{{ $distributor->region->region_name }}</td>
                                 <td>
                                     @if($distributor->status == 1)
                                      <span class="badge bg-success">Enabled</span>

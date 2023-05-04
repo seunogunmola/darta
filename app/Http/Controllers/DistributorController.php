@@ -17,7 +17,7 @@ class DistributorController extends Controller
     public function __construct()
     {
         $this->resource = "Distributors";
-        $this->states = State::getStates();
+        $this->states = State::getAllStates();
         $this->regions = Region::getRegions();  
         $this->rules = [
             'name'=>'string|required',
@@ -34,10 +34,8 @@ class DistributorController extends Controller
     {
         $resource = $this->resource;
         $action = "All Distributors";   
-        $states = State::getStates();
-        $regions = Region::getRegions();            
         $distributors = Distributor::all();
-        return view('admin.distributors.list',compact('resource','action','distributors','states','regions'));
+        return view('admin.distributors.list',compact('resource','action','distributors'));
     }
 
     /**
@@ -83,7 +81,7 @@ class DistributorController extends Controller
                 'type'=>'success'
             ];
 
-            return back()->with($message);
+            return redirect(route('distributor.list'))->with($message);
         }
         else{
             $message = [
