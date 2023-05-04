@@ -32,6 +32,17 @@
                     </li>
                     <li>
                         <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class="bx bx-map-alt"></i>
+                            </div>
+                            <div class="menu-title">Regions</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{ route('regions.list') }}"><i class="bx bx-right-arrow-alt"></i>View Regions</a></li>
+                            <li> <a href="{{ route('regions.create') }}"><i class="bx bx-right-arrow-alt"></i>Create Region</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon"><i class="bx bx-map"></i>
                             </div>
                             <div class="menu-title">States</div>
