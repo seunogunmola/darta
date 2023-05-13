@@ -61,9 +61,9 @@ class ProductController extends Controller
             $data['uniqueid'] = str()->random('7');
             if($image = $request->file('product_image')){                
                 $filename = $data['uniqueid'].'.'.$image->getClientOriginalExtension();
-                $image_path = "uploads/product_images/".$filename;
-                Image::make($image)->save($image_path);
-                $data['product_image'] = $image_path;
+                $image_path = "uploads/product_images/";
+                $image->move(public_path($image_path),$filename);
+                $data['product_image'] = $image_path.$filename;
             }
             $data['created_by'] = auth()->user()->id;
 
@@ -121,7 +121,6 @@ class ProductController extends Controller
                 unset($product->product_image);              
                 $filename = $data['uniqueid'].'.'.$image->getClientOriginalExtension();
                 $image_path = "uploads/product_images/";
-                // Image::make($image)->save($image_path);
                 $image->move(public_path($image_path),$filename);
                 $data['product_image'] = $image_path.$filename;
             }
