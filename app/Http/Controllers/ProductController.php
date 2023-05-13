@@ -62,7 +62,7 @@ class ProductController extends Controller
             if($image = $request->file('product_image')){                
                 $filename = $data['uniqueid'].'.'.$image->getClientOriginalExtension();
                 $image_path = "uploads/product_images/".$filename;
-                Image::make($image)->resize(400,400)->save($image_path);
+                Image::make($image)->save($image_path);
                 $data['product_image'] = $image_path;
             }
             $data['created_by'] = auth()->user()->id;
