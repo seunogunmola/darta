@@ -1,18 +1,16 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\StateController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AdminController::class,'login']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [AuthenticatedSessionController::class,'create']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -119,9 +117,18 @@ Route::middleware('auth')->group(
                 Route::get('/products/delete/{id}','destroy')->name('products.delete');
             }
         );
+
+        #RETAILERS
+        Route::controller(RetailerController::class)->group(
+            function(){
+                Route::get('/retailer/dashboard','dashboard')->name('retailer.dashboard');
+                Route::get('/retailer/logout','logout')->name('retailer.logout');
+            }
+        );
     }
 );
 
 
 //ADMIN LOGIN 
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
+Route::get('/admin',[AdminController::class,'login'])->name('admin.direct.login');

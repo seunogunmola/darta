@@ -16,7 +16,7 @@ class AuthenticatedSessionController extends Controller
      * Display the login view.
      */
     public function create(): View
-    {
+    {        
         return view('auth.login');
     }
 
@@ -25,16 +25,19 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        $url = "/dashboard";
-
-        if(Auth::user()->usertype == "admin"){
+        $url = "";
+        
+        if(Auth::user()->usertype === "admin"){
             $url = "/admin/dashboard";
         }
-
+        else if (Auth::user()->usertype === "retailer"){
+            $url = "/retailer/dashboard";
+        }        
         return redirect()->intended($url);
     }
 

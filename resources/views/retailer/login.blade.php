@@ -18,7 +18,7 @@
 	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
-	<title>Darta Admin - Login</title>
+	<title>{{ env('APP_NAME') }}</title>
 </head>
 
 <body class="bg-login">
@@ -35,8 +35,7 @@
 							<div class="card-body">
 								<div class="border p-4 rounded">
 									<div class="text-center">
-										<h3 class="">Admin Sign in</h3>
-										<a href="{{ route('login') }}">Retailer? Sign In Here</a>
+										<h3 class="">Sign in</h3>
 									</div>
 									<div class="form-body">
                                         <form class="row g-3" method="POST" action="{{ route('login') }}">
@@ -72,7 +71,6 @@
 												<div class="d-grid">
 													<button type="submit" class="btn btn-primary"><i class="bx bxs-lock-open"></i>Sign in</button>
 												</div>
-												
 											</div>
 										</form>
 									</div>
