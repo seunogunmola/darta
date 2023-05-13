@@ -37,7 +37,8 @@ class AuthenticatedSessionController extends Controller
         }
         else if (Auth::user()->usertype === "retailer"){
             $url = "/retailer/dashboard";
-        }        
+        }     
+           
         return redirect()->intended($url);
     }
 

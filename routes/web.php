@@ -132,3 +132,4 @@ Route::middleware('auth')->group(
 //ADMIN LOGIN 
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/admin',[AdminController::class,'login'])->name('admin.direct.login');
+
