@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Distributor;
 use App\Models\State;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,7 @@ class AdminController extends Controller
         $distributorCount = Distributor::count();
         $stateCount = State::count();
         $retailerCount = 0;
-        $productCount = 0;
+        $productCount = Product::count();
         $orderCount = 0;
         $orders = [];
         return view('admin.dashboard',compact('distributorCount','retailerCount','productCount','orderCount','orders','stateCount'));

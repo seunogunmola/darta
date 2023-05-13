@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DistributorController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StateController;
@@ -100,6 +101,24 @@ Route::middleware('auth')->group(
             }
         );
         
+        #PRODUCTS
+        Route::controller(ProductController::class)->group(
+            function(){
+                #SHOW ALL PRODUCTS
+                Route::get('/products/list','index')->name('products.list');
+                #SHOW PRODUCT CREATION PAGE
+                Route::get('products/create','create')->name('products.create');
+                #SHOW PRODUCT EDIT PAGE
+                Route::get('/products/edit/{id}','edit')->name('products.edit');
+
+                #STORE NEW PRODUCT
+                Route::post('/products/store','store')->name('products.store');
+                #UPDATE EXISTING PRODUCT
+                Route::post('/products/update/{id}','update')->name('products.update');
+
+                Route::get('/products/delete/{id}','destroy')->name('products.delete');
+            }
+        );
     }
 );
 
