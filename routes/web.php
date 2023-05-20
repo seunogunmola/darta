@@ -11,7 +11,7 @@ use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\StateController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [FrontendController::class,'index']);
+Route::get('/', [FrontendController::class,'index'])->name('homepage');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -24,7 +24,7 @@ require __DIR__.'/auth.php';
 
 //ADMIN ROUTES
 // AUTH
-Route::middleware('auth')->group(
+Route::middleware(['auth','validateAccess:admin'])->group(
     function(){
         Route::controller(AdminController::class)->group(
             function(){
@@ -123,15 +123,6 @@ Route::middleware('auth')->group(
                 Route::get('/products/delete/{id}','destroy')->name('products.delete');
             }
         );
-
-        #RETAILERS
-        Route::controller(RetailerController::class)->group(
-            function(){
-                Route::get('/retailer/dashboard','dashboard')->name('retailer.dashboard');
-                Route::get('/retailer/logout','logout')->name('retailer.logout');
-            }
-        );
-
         // DISTRIBUTORS
         Route::controller(RetailerController::class)->group(
             function(){
@@ -139,6 +130,18 @@ Route::middleware('auth')->group(
                 Route::get('/retailers/list','index')->name('retailers.list');
             }
         );       
+    }
+);
+
+#RETAILERS
+Route::middleware(['auth','validateAccess:retailer'])->group(
+    function(){        
+        Route::controller(RetailerController::class)->group(
+            function(){
+                Route::get('/retailer/dashboard','dashboard')->name('retailer.dashboard');
+                Route::get('/retailer/logout','logout')->name('retailer.logout');
+            }
+        );
     }
 );
 
