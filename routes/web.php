@@ -33,6 +33,11 @@ Route::middleware('auth')->group(
         
                 // LOGOUT 
                 Route::get('/admin/logout','logout')->name('admin.logout');
+
+                #USERS
+                Route::get('/admin/users/list','users')->name('users.list');
+                Route::get('/admin/users/create','create')->name('users.create');
+                Route::post('/admin/users/store','storeAdminUser')->name('users.store');
             }
         );
         // DISTRIBUTORS
@@ -132,21 +137,6 @@ Route::middleware('auth')->group(
             function(){
                 #SHOW LIST
                 Route::get('/retailers/list','index')->name('retailers.list');
-
-                #SHOW CREATE FORM
-                // Route::get('/distributors/create','create')->name('distributor.create');
-
-                // #SHOW EDIT FORM
-                // Route::get('/distributors/edit/{id}','edit')->name('distributor.edit');                
-                
-                // #STORE
-                // Route::post('/distributors/store','store')->name('distributor.store');
-
-                // #UPDATE
-                // Route::post('/distributors/update/{id}','update')->name('distributor.update');
-                
-                // #DELETE
-                // Route::get('/distributors/delete/{id}','destroy')->name('distributor.delete');
             }
         );       
     }

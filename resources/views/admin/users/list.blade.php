@@ -24,26 +24,26 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
-                            <th>SKU</th>
+                            <th>Unique ID</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Unit</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Date Registered</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($products as $index=>$product )
+                        @foreach($data as $index=>$user )
                             <tr>
                                 <td>{{ $index+1 }}</td>
-                                <td><img src="{{ asset($product->product_image) }}" style="width:50px;" alt=""></td>
-                                <td>{{ $product->sku }}</td>
-                                <td>{{ $product->product_name }}</td>
-                                <td>{{ $product->product_price }}</td>
-                                <td>{{ $product->unit->unit_name; }}</td>
+                                <td>{{ $user->uniqueid }}</td>
+                                <td>{{ $user->fullname }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->created_at }}</td>
                                 <td>
-                                    @if($product->status == 1)
+                                    @if($user->status == 1)
                                      <span class="badge bg-success">Enabled</span>
                                     @else
                                     <span class="badge bg-danger">Disabled</span>
@@ -53,9 +53,9 @@
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Action</button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="{{ route('products.edit',$product->id) }}">Edit</a></li>
+                                            <li><a class="dropdown-item" href="#">Edit</a></li>
                                             <li><a class="dropdown-item" href="#">View Details</a></li>
-                                            <li><a id="delete" class="dropdown-item" id="delete" href="{{ route('products.delete',$product->id) }}">Delete</a></li>
+                                            <li><a class="dropdown-item" id="delete" href="#">Delete</a></li>
                                         </ul>
                                     </div>                                
                                 </td>

@@ -73,6 +73,17 @@
                             <li> <a href="{{ route('states.create') }}"><i class="bx bx-right-arrow-alt"></i>Create State</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class="bx bx-user"></i>
+                            </div>
+                            <div class="menu-title">Admin Users</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{ route('users.list') }}"><i class="bx bx-right-arrow-alt"></i>View Admin Users</a></li>
+                            <li> <a href="{{ route('users.create') }}"><i class="bx bx-right-arrow-alt"></i>Create Admin User</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!--end navigation-->
             </div>

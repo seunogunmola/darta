@@ -41,4 +41,8 @@ class User extends Authenticatable
     public static function getRetailers(){
         return Self::where('usertype','retailer')->get();
     }
+
+    public static function getAdminUsers(){
+        return Self::where('usertype','admin')->get();
+    }
 }

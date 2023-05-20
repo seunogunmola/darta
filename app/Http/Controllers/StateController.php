@@ -29,7 +29,7 @@ class StateController extends Controller
     {
         $resource = $this->resource;
         $states = State::getAllStates();
-        $action = "States List";
+        $action = "All States";
         return view('admin.states.list',compact('resource','action','states'));
     }
 

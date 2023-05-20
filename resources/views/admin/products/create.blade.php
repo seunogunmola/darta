@@ -1,4 +1,5 @@
 @extends('admin.templates.main')
+@section('pageTitle',$action)
 @section('content')
 <div class="page-content">
     <!--breadcrumb-->

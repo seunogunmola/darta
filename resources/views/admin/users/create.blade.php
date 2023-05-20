@@ -26,7 +26,7 @@
                             <h5 class="mb-0 text-info">{{ $action }}</h5>
                         </div>
                         <hr />
-                        <form action="{{ route('distributor.store') }}" method="post">
+                        <form action="{{ route('users.store') }}" method="post">
                             @csrf
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -38,10 +38,10 @@
                                 </div>
                             @endif
                             <div class="row mb-3">
-                                <label for="inputEnterYourName" class="col-sm-3 col-form-label">Name</label>
+                                <label for="inputEnterYourName" class="col-sm-3 col-form-label">Fullname</label>
                                 <div class="col-sm-9">
-                                    <input name="name" required value="{{ old('name') }}" type="text"
-                                        class="form-control" id="name" placeholder="Enter Distributor Name">
+                                    <input name="fullname" required value="{{ old('fullname') }}" type="text"
+                                        class="form-control" id="name" placeholder="Enter {{ $resource }} Fullname">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -49,7 +49,7 @@
                                 <div class="col-sm-9">
                                     <input name="phone" required value="{{ old('phone') }}"
                                         type="text" class="form-control" id="email"
-                                        placeholder="Enter Distributor Phone" maxlength="11">
+                                        placeholder="Enter {{ $resource }}  Phone" maxlength="11">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -57,36 +57,19 @@
                                 <div class="col-sm-9">
                                     <input name="email" required value="{{ old('email') }}"
                                         type="email" class="form-control" id="phone"
-                                        placeholder="Enter Distributor Email">
+                                        placeholder="Enter {{ $resource }}  Email">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputConfirmPassword2" class="col-sm-3 col-form-label">Address</label>
+                                <label for="inputConfirmPassword2" class="col-sm-3 col-form-label">Password</label>
                                 <div class="col-sm-9">
-                                    <textarea name="address" required class="form-control" id="" cols="30"
-                                        rows="3">{{ old('address') }}</textarea>
+                                    <input type="password" name="password" class="form-control" required placeholder="Enter {{ $resource }} Password"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputAddress4" class="col-sm-3 col-form-label">State</label>
+                                <label for="inputConfirmPassword2" class="col-sm-3 col-form-label">Confirm Password</label>
                                 <div class="col-sm-9">
-                                    <select name="state_id" id="state_id" required class="form-control">
-                                        <option value="">Select Option</option>
-                                        @foreach($states as $state)
-                                            <option {{ old('state_id') == $state->id ?  "selected" : "" }}  value="{{ old('state_id',$state->id) }}">{{ $state->state_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputAddress4" class="col-sm-3 col-form-label">Region</label>
-                                <div class="col-sm-9">
-                                    <select name="region_id" id="region_id" required class="form-control">
-                                        <option value="">Select Option</option>
-                                        @foreach($regions as $region)
-                                            <option {{ old('region_id') == $region->id ?  "selected" : "" }}  value="{{ old('region_id',$region->id) }}">{{ $region->region_name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="password" name="password_confirmation" class="form-control" required placeholder="Confirm {{ $resource }} Password"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -102,7 +85,7 @@
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-info px-5">Create</button>
+                                    <button type="submit" class="btn btn-info px-5">Create {{ $resource }} </button>
                                 </div>
                             </div>
                         </form>
