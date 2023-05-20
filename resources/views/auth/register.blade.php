@@ -73,32 +73,32 @@
                                             @endif                                                
 											<div class="col-sm-12">
 												<label for="inputFirstName" class="form-label">Fullname</label>
-												<input type="text" name="fullname" class="form-control" id="fullname" placeholder="Enter your Fullname" value="{{ old('fullname') }}">
+												<input type="text" name="fullname" class="form-control" id="fullname" placeholder="Enter your Fullname" value="{{ old('fullname') }}" required>
 											</div>
 											<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">Email Address</label>
-												<input type="email" name="email" class="form-control" id="inputEmailAddress" placeholder="Enter your Email Address" value="{{ old('email') }}">
+												<input type="email" name="email" class="form-control" id="inputEmailAddress" placeholder="Enter your Email Address" value="{{ old('email') }}" required>
 											</div>
 											<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">Phone Number</label>
-												<input type="tel" name="phone" class="form-control" id="inputEmailAddress" placeholder="Enter your Phone Number" value="{{ old('phone') }}" maxlength="11">
+												<input type="tel" name="phone" class="form-control" id="inputEmailAddress" placeholder="Enter your Phone Number" value="{{ old('phone') }}" maxlength="11" required>
 											</div>
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input type="password" name="password" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Enter your Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+													<input type="password" name="password" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Enter your Password" required> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
 												</div>
 											</div>
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Confirm Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input type="password" name="password_confirmation" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Confirm your Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+													<input type="password" name="password_confirmation" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Confirm your Password"> <a href="javascript:;" class="input-group-text bg-transparent" required><i class='bx bx-hide'></i></a>
 												</div>
 											</div>
 											<div class="col-12">
 												<div class="form-check form-switch">
-													<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-													<label class="form-check-label" for="flexSwitchCheckChecked">I read and agree to Terms & Conditions</label>
+													<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" required>
+													<label class="form-check-label" for="flexSwitchCheckChecked">I have read and agree to Terms & Conditions</label>
 												</div>
 											</div>
 											<div class="col-12">
