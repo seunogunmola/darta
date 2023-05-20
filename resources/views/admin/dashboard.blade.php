@@ -24,44 +24,48 @@
 						  </a>
 						</div>
 						<div class="col">
-							<div class="card radius-10 bg-gradient-deepblue">
-							 <div class="card-body">
-								<a href="{{ route('distributor.list') }}">
-									<div class="d-flex align-items-center">
-										<h5 class="mb-0 text-white">{{ $distributorCount}}</h5>
-										<div class="ms-auto">
-											<i class='bx bx-user fs-3 text-white'></i>
+							<a href="{{ route('distributor.list') }}">
+								<div class="card radius-10 bg-gradient-deepblue">
+								<div class="card-body">
+									<a href="{{ route('distributor.list') }}">
+										<div class="d-flex align-items-center">
+											<h5 class="mb-0 text-white">{{ $distributorCount}}</h5>
+											<div class="ms-auto">
+												<i class='bx bx-user fs-3 text-white'></i>
+											</div>
 										</div>
+									</a>
+									<div class="progress my-3 bg-light-transparent" style="height:3px;">
+										<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
-								</a>
-								<div class="progress my-3 bg-light-transparent" style="height:3px;">
-									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-								<div class="d-flex align-items-center text-white">
-									<p class="mb-0">Distributors</p>
-									<!-- <p class="mb-0 ms-auto">+4.2%<span><i class='bx bx-up-arrow-alt'></i></span></p> -->
+									<div class="d-flex align-items-center text-white">
+										<p class="mb-0">Distributors</p>
+										<!-- <p class="mb-0 ms-auto">+4.2%<span><i class='bx bx-up-arrow-alt'></i></span></p> -->
+									</div>
 								</div>
 							</div>
-						  </div>
+							</a>
 						</div>
 						<div class="col">
-							<div class="card radius-10 bg-gradient-orange">
-							<div class="card-body">
-								<div class="d-flex align-items-center">
-									<h5 class="mb-0 text-white">{{ $retailerCount }}</h5>
-									<div class="ms-auto">
-                                        <i class='bx bx-group fs-3 text-white'></i>
+							<a href="{{ route('retailers.list') }}">
+								<div class="card radius-10 bg-gradient-orange">
+								<div class="card-body">
+									<div class="d-flex align-items-center">
+										<h5 class="mb-0 text-white">{{ $retailerCount }}</h5>
+										<div class="ms-auto">
+											<i class='bx bx-group fs-3 text-white'></i>
+										</div>
+									</div>
+									<div class="progress my-3 bg-light-transparent" style="height:3px;">
+										<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+									<div class="d-flex align-items-center text-white">
+										<p class="mb-0">Retailers</p>
+										<!-- <p class="mb-0 ms-auto">+1.2%<span><i class='bx bx-up-arrow-alt'></i></span></p> -->
 									</div>
 								</div>
-								<div class="progress my-3 bg-light-transparent" style="height:3px;">
-									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
-								<div class="d-flex align-items-center text-white">
-									<p class="mb-0">Retailers</p>
-									<!-- <p class="mb-0 ms-auto">+1.2%<span><i class='bx bx-up-arrow-alt'></i></span></p> -->
-								</div>
-							</div>
-						  </div>
+							</a>
 						</div>
 						<div class="col">
 							<a href="{{ route('products.list') }}" >

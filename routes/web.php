@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class,'index']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
 
@@ -126,6 +126,29 @@ Route::middleware('auth')->group(
                 Route::get('/retailer/logout','logout')->name('retailer.logout');
             }
         );
+
+        // DISTRIBUTORS
+        Route::controller(RetailerController::class)->group(
+            function(){
+                #SHOW LIST
+                Route::get('/retailers/list','index')->name('retailers.list');
+
+                #SHOW CREATE FORM
+                // Route::get('/distributors/create','create')->name('distributor.create');
+
+                // #SHOW EDIT FORM
+                // Route::get('/distributors/edit/{id}','edit')->name('distributor.edit');                
+                
+                // #STORE
+                // Route::post('/distributors/store','store')->name('distributor.store');
+
+                // #UPDATE
+                // Route::post('/distributors/update/{id}','update')->name('distributor.update');
+                
+                // #DELETE
+                // Route::get('/distributors/delete/{id}','destroy')->name('distributor.delete');
+            }
+        );       
     }
 );
 
@@ -133,4 +156,5 @@ Route::middleware('auth')->group(
 //ADMIN LOGIN 
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/admin',[AdminController::class,'login'])->name('admin.direct.login');
+
 

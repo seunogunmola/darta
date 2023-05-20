@@ -21,6 +21,16 @@
                     </li>
                     <li>
                         <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class="bx bx-user"></i>
+                            </div>
+                            <div class="menu-title">Retailers</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{ route('retailers.list') }}"><i class="bx bx-right-arrow-alt"></i>View Retailers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon"><i class="bx bx-cart"></i>
                             </div>
                             <div class="menu-title">Products</div>
