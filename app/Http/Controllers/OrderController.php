@@ -118,4 +118,19 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function adminOrderList(){
+        $resource = "Orders";
+        $title = "All Orders";
+        $orders = Order::all();
+        return view('admin.orders.list',compact('orders','resource','title'));
+    }
+
+    public function adminOrderDetails($uniqueid)
+    {
+        $order = Order::where('uniqueid',$uniqueid)->first();        
+        $title = "Order Details for : ".$order->order_title;
+        $resource = "Order";
+        return view('admin.orders.details',compact('order','title','resource'));
+    }    
 }

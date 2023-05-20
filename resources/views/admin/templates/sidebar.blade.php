@@ -21,6 +21,16 @@
                     </li>
                     <li>
                         <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class="bx bx-cart"></i>
+                            </div>
+                            <div class="menu-title">Orders</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{ route('admin.orders.list') }}"><i class="bx bx-right-arrow-alt"></i>View Orders</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon"><i class="bx bx-user"></i>
                             </div>
                             <div class="menu-title">Retailers</div>
@@ -31,7 +41,7 @@
                     </li>
                     <li>
                         <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><i class="bx bx-cart"></i>
+                            <div class="parent-icon"><i class="bx bx-box"></i>
                             </div>
                             <div class="menu-title">Products</div>
                         </a>

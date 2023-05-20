@@ -130,7 +130,15 @@ Route::middleware(['auth','validateAccess:admin'])->group(
                 #SHOW LIST
                 Route::get('/retailers/list','index')->name('retailers.list');
             }
-        );       
+        );    
+        
+        #ORDERS
+        Route::controller(OrderController::class)->group(
+            function(){
+                Route::get('/admin/order/list','adminOrderList')->name('admin.orders.list');
+                Route::get('/admin/order/details/{uniqueid}','adminOrderDetails')->name('admin.orders.details');
+            }
+        );
     }
 );
 

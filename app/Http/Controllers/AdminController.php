@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Distributor;
 use App\Models\State;
 use App\Models\User;
@@ -18,7 +19,7 @@ class AdminController extends Controller
         $stateCount = State::count();
         $retailerCount = User::where('usertype','retailer')->count();
         $productCount = Product::count();
-        $orderCount = 0;
+        $orderCount = Order::count();
         $orders = [];
         return view('admin.dashboard',compact('distributorCount','retailerCount','productCount','orderCount','orders','stateCount','title'));
     }
