@@ -4,7 +4,7 @@
     <div class="page-content">
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
 						<div class="col">
-						<a href="{{ route('states.list') }}">
+						<a href="{{ route('retailer.orders.list') }}">
 							<div class="card radius-10 bg-gradient-orange">
 							 	<div class="card-body">								
 									<div class="d-flex align-items-center">
@@ -31,7 +31,8 @@
                     <div>
                         <h5 class="mb-0">Available Products</h5>
                     </div>
-                    <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
+                    <div class="font-22 ms-auto">
+                        <a href="{{ route('retailer.orders.create') }}" class="btn btn-primary"> <i class="bx bx-plus"></i> Create an Order</a>
                     </div>
                 </div>
                 <hr />
@@ -52,7 +53,7 @@
                                 <td>{{ ++$index}}</td>
                                 <td> <img src="{{ asset($product->product_image) }}" style="width:50px"/>  </td>
                                 <td>{{ $product->product_name }}</td>
-                                <td>{{ $product->product_price }}</td>
+                                <td> @currency($product->product_price) </td>
                             </tr>                                
                             @endforeach
                         </tbody>

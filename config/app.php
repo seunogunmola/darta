@@ -215,4 +215,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
+    'applogo'=>env('APP_LOGO'),
+
 ];

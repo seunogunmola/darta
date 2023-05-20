@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
@@ -142,7 +143,19 @@ Route::middleware(['auth','validateAccess:retailer'])->group(
                 Route::get('/retailer/logout','logout')->name('retailer.logout');
             }
         );
-    }
+
+        #ORDER
+        Route::controller(OrderController::class)->group(
+            function(){
+                Route::get('/retailer/orders','index')->name('retailer.orders.list');
+                Route::get('/retailer/orders/create','create')->name('retailer.orders.create');
+
+                Route::post('/retailer/orders/store','store')->name('retailer.orders.store');
+
+                Route::get('/retailer/orders/details/{uniqueid}','details')->name('retailer.orders.details');
+            }
+        );
+    }    
 );
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class RetailerController extends Controller
 
     public function dashboard(){
         $title="Retailer Dashboard";
-        $ordersCount = 0;
+        $ordersCount = Order::getRetailerOrders(auth()->user()->id)->count();
         $orders = [];
         $products = Product::latest()->get();
         return view('retailer.dashboard',compact('ordersCount','orders','products','title'));

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,7 +14,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $title = "My Orders";
+        $resource = "Orders";
+        $orders = Order::getRetailerOrders(auth()->user()->id);        
+        return view('retailer.orders.list',compact('title','resource','orders'));
     }
 
     /**
@@ -20,7 +25,10 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $resource = "Orders";
+        $products = Product::all();
+        $title = "Create Order";
+        return view('retailer.orders.create',compact('title','resource','products'));
     }
 
     /**
@@ -28,15 +36,63 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'order_title'=>'string|required'
+        ];
+
+        $request->validate($rules);
+
+        $orderData = [
+            'uniqueid'=>str()->random(7),
+            'retailer_id'=>auth()->user()->id,
+            'order_title'=>$request->order_title,
+            'order_date'=>date('Y-m-d'),
+            'status'=>'pending',
+            'is_disbursed'=>'0'
+        ];
+
+        $order = Order::create($orderData);
+        
+
+        $orderDetailData = [];
+        
+        $product_ids = $request->product_id;
+        $product_quantities = $request->product_quantity;
+        $product_prices = $request->product_price;
+
+        foreach($product_ids as $index=>$value){
+            if($product_quantities[$index] != 0){
+                $orderDetailData[] = [
+                    'order_id'=>$order->id,
+                    'product_id'=>$product_ids[$index],
+                    'product_price'=>$product_prices[$index],
+                    'product_quantity'=>$product_quantities[$index],
+                    'created_at'=>date('Y-m-d H:i:s'),
+                ];
+            }
+        }
+        
+        $order_details_saved = OrderDetail::insert($orderDetailData);
+
+        if($order && $order_details_saved){
+            $message = "Order Created Successfully";            
+            return redirect(route('retailer.orders.details',$order->uniqueid))->with($message);
+        }
+        else{
+            $message = "An Error Occured, Please try again later";
+            return redirect()->back()->with($message);
+        }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function details($uniqueid)
     {
-        //
+        $order = Order::where('uniqueid',$uniqueid)->first();        
+        $title = "Order Details for : ".$order->order_title;
+        $resource = "Order";
+        return view('retailer.orders.details',compact('order','title','resource'));
     }
 
     /**

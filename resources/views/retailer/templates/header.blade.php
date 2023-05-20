@@ -7,6 +7,23 @@
                         <div class="search-bar flex-grow-1">
 
                         </div>
+                        <div class="top-menu ms-auto">
+                            <ul class="navbar-nav align-items-center">
+                                <li class="nav-item dropdown dropdown-large">
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <div class="header-notifications-list">
+
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown dropdown-large">
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <div class="header-message-list">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>                        
 
                         <div class="user-box dropdown">
                             <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
